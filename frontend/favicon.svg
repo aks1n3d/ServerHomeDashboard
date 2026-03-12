@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Home Dashboard favicon">
+    <defs>
+        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#17345a"/>
+            <stop offset="1" stop-color="#0b1728"/>
+        </linearGradient>
+        <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#f8b84e"/>
+            <stop offset="1" stop-color="#ff7f50"/>
+        </linearGradient>
+    </defs>
+
+    <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#bg)"/>
+    <rect x="11" y="13" width="42" height="8" rx="4" fill="#9cc8ff" opacity="0.88"/>
+    <rect x="11" y="27" width="22" height="22" rx="6" fill="url(#accent)"/>
+    <rect x="37" y="27" width="16" height="9" rx="4.5" fill="#42d392"/>
+    <rect x="37" y="40" width="16" height="9" rx="4.5" fill="#6ea8ff"/>
+</svg>

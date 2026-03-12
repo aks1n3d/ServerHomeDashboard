@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: homelab-dashboard
+    ports:
+      - "3395:3000"
+    volumes:
+      - ./config:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    restart: unless-stopped
+    networks:
+      - homelab
+    # Allow access to host network for service health checks
+    # Uncomment if services are on the host machine
+    # network_mode: host
+
+networks:
+  homelab:
+    driver: bridge
+

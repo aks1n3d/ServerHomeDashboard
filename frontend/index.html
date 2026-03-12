@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homelab Dashboard</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-top">
+                <div class="server-info">
+                    <h1 id="hostname">Loading...</h1>
+                    <p id="datetime" class="datetime">--:-- --</p>
+                </div>
+                <div class="system-stats-header">
+                    <div class="stat-badge">
+                        <span class="stat-label">CPU</span>
+                        <span class="stat-value" id="cpu-badge">--</span>
+                        <span class="stat-unit">%</span>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="stat-label">RAM</span>
+                        <span class="stat-value" id="ram-badge">--</span>
+                        <span class="stat-unit">%</span>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="stat-label">DISK</span>
+                        <span class="stat-value" id="disk-badge">--</span>
+                        <span class="stat-unit">%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="header-divider"></div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Services Grid -->
+            <section class="services-section">
+                <h2 class="section-title">Services</h2>
+                <div class="services-grid" id="services-grid">
+                    <div class="service-card loading">
+                        <div class="loading-spinner"></div>
+                        <p>Loading services...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- System Information Panel -->
+            <section class="system-info-section">
+                <h2 class="section-title">System Information</h2>
+                <div class="system-info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">📊</div>
+                        <div class="info-content">
+                            <span class="info-label">CPU Usage</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="cpu-progress"></div>
+                            </div>
+                            <span class="info-value" id="cpu-value">--</span>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">💾</div>
+                        <div class="info-content">
+                            <span class="info-label">Memory</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="memory-progress"></div>
+                            </div>
+                            <span class="info-value" id="memory-value">--</span>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">💿</div>
+                        <div class="info-content">
+                            <span class="info-label">Disk Usage</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="disk-progress"></div>
+                            </div>
+                            <span class="info-value" id="disk-value">--</span>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">🐳</div>
+                        <div class="info-content">
+                            <span class="info-label">Docker Containers</span>
+                            <span class="info-value large" id="docker-value">--</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Homelab Dashboard • Last updated: <span id="last-updated">--</span></p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+

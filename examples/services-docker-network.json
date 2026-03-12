@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Jellyfin",
+    "url": "http://jellyfin:8096",
+    "icon": "jellyfin.svg"
+  },
+  {
+    "name": "Portainer",
+    "url": "http://portainer:9000",
+    "icon": "portainer.svg"
+  },
+  {
+    "name": "Nextcloud",
+    "url": "http://nextcloud:80",
+    "icon": "nextcloud.svg"
+  },
+  {
+    "name": "PostgreSQL",
+    "url": "http://localhost:5432",
+    "icon": "emoji:🗄️"
+  }
+]
+

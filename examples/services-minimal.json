@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Jellyfin",
+    "url": "http://localhost:8096",
+    "icon": "jellyfin.svg"
+  },
+  {
+    "name": "Portainer",
+    "url": "http://localhost:9000",
+    "icon": "portainer.svg"
+  }
+]
+
