@@ -2,37 +2,51 @@
   {
     "name": "Pi-hole",
     "url": "http://192.168.0.172:8079/admin",
-    "icon": "pihole.svg"
+    "icon": "pihole.svg",
+    "category": "Security",
+    "alertThreshold": 5000
   },
   {
     "name": "Portainer",
     "url": "http://192.168.0.172:9443",
-    "icon": "portainer.svg"
+    "icon": "portainer.svg",
+    "category": "Infrastructure",
+    "alertThreshold": 3000
   },
   {
     "name": "Uptime Kuma",
     "url": "http://192.168.0.172:3001",
-    "icon": "uptimekuma.svg"
+    "icon": "uptimekuma.svg",
+    "category": "Monitoring",
+    "alertThreshold": 2000
   },
   {
     "name": "Files Browser",
     "url": "http://192.168.0.172:8080",
-    "icon": "filebrowser.svg"
+    "icon": "filebrowser.svg",
+    "category": "Storage",
+    "alertThreshold": 4000
   },
   {
     "name": "Vaultwarden",
     "url": "http://192.168.0.172:8081",
-    "icon": "vaultwarden.svg"
+    "icon": "vaultwarden.svg",
+    "category": "Security",
+    "alertThreshold": 3000
   },
   {
     "name": "Jellyfin",
     "url": "http://192.168.0.172:8096",
-    "icon": "jellyfin.svg"
+    "icon": "jellyfin.svg",
+    "category": "Media",
+    "alertThreshold": 4000
   },
   {
     "name": "Monitoring",
     "url": "http://192.168.0.172:19999",
-    "icon": "netdata.svg"
+    "icon": "netdata.svg",
+    "category": "Monitoring",
+    "alertThreshold": 2000
   }
 ]
 

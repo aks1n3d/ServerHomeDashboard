@@ -385,6 +385,65 @@ setInterval(async () => {
 
 ---
 
+## Deployment
+
+### Production Deployment
+
+**With Docker (Recommended):**
+```bash
+docker-compose up --build
+# Access at http://localhost:3395
+```
+
+**With HTTPS:**
+```bash
+ENABLE_HTTPS=true npm start
+# Access at https://localhost:3000
+# Self-signed certs auto-generated
+```
+
+**With Nginx Reverse Proxy:**
+```nginx
+server {
+    listen 443 ssl http2;
+    server_name yourdomain.com;
+    
+    ssl_certificate /path/to/cert.pem;
+    ssl_certificate_key /path/to/key.pem;
+    
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+```
+
+### Environment Variables
+
+```bash
+NODE_ENV=production              # Production mode
+PORT=3000                        # Server port
+JWT_SECRET=your-secret-key       # Change in production!
+ENABLE_HTTPS=true                # Enable SSL/TLS
+SSL_CERT=/path/to/cert.pem       # Custom certificate
+SSL_KEY=/path/to/key.pem         # Custom key
+```
+
+### Security Considerations
+
+- Always use HTTPS in production
+- Change JWT_SECRET to a strong random value
+- Use firewall to restrict access to your server
+- Keep dependencies updated (`npm audit fix`)
+- Monitor logs for suspicious activity
+- Enable rate limiting on reverse proxy
+- Use strong passwords for user accounts
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for comprehensive deployment guide.
+
+---
+
 ## Version
 
 Current API Version: **1.0**

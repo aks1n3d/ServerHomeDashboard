@@ -8,6 +8,83 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Authentication Modal -->
+    <div id="auth-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="auth-title">Login</h2>
+                <button class="modal-close" onclick="closeAuthModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="auth-form" onsubmit="handleAuthSubmit(event)">
+                    <div class="form-group">
+                        <label for="auth-username">Username</label>
+                        <input type="text" id="auth-username" placeholder="Enter username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="auth-email">Email</label>
+                        <input type="email" id="auth-email" placeholder="Enter email" style="display: none;">
+                    </div>
+                    <div class="form-group">
+                        <label for="auth-password">Password</label>
+                        <input type="password" id="auth-password" placeholder="Enter password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Login</button>
+                </form>
+                <p class="auth-toggle">
+                    Don't have an account? <a href="#" onclick="toggleAuthMode(event)">Register</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alerts Modal -->
+    <div id="alerts-modal" class="modal hidden">
+        <div class="modal-content alerts-modal-content">
+            <div class="modal-header">
+                <h2>Alerts & Notifications</h2>
+                <button class="modal-close" onclick="closeAlertsModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="alerts-tabs">
+                    <button class="tab-btn active" onclick="switchAlertsTab('create')">Create Alert</button>
+                    <button class="tab-btn" onclick="switchAlertsTab('list')">My Alerts</button>
+                </div>
+
+                <!-- Create Alert Tab -->
+                <div id="create-alert-tab" class="tab-content active">
+                    <form id="create-alert-form" onsubmit="handleCreateAlert(event)">
+                        <div class="form-group">
+                            <label for="alert-service">Service</label>
+                            <select id="alert-service" required>
+                                <option value="">Select a service...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="alert-type">Alert Type</label>
+                            <select id="alert-type" required>
+                                <option value="response_time">Response Time Threshold</option>
+                                <option value="offline">Service Offline</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="threshold-group">
+                            <label for="alert-threshold">Threshold (ms)</label>
+                            <input type="number" id="alert-threshold" placeholder="5000" value="5000" min="100">
+                        </div>
+                        <button type="submit" class="btn-primary">Create Alert</button>
+                    </form>
+                </div>
+
+                <!-- Alerts List Tab -->
+                <div id="list-alerts-tab" class="tab-content">
+                    <div id="alerts-list" class="alerts-list">
+                        <p class="no-alerts">No alerts configured. Create one to get started!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <!-- Header Section -->
         <header class="header">
@@ -34,6 +111,18 @@
                         <span class="stat-unit">%</span>
                     </div>
                 </div>
+                <div class="user-menu">
+                    <button id="theme-toggle" class="btn-theme" onclick="handleThemeToggle()" title="Toggle theme">🌙</button>
+                    <button id="alerts-btn" class="btn-alerts" onclick="openAlertsModal()">
+                        <span>🔔</span>
+                        <span id="alert-badge" class="alert-badge hidden">0</span>
+                    </button>
+                    <button id="auth-btn" class="btn-auth" onclick="openAuthModal()">Login</button>
+                    <div id="user-info" class="user-info hidden">
+                        <span id="user-display">User</span>
+                        <button id="logout-btn" class="btn-logout" onclick="handleLogout()">Logout</button>
+                    </div>
+                </div>
             </div>
             <div class="header-divider"></div>
         </header>
@@ -42,8 +131,14 @@
         <main class="main-content">
             <!-- Services Grid -->
             <section class="services-section">
-                <h2 class="section-title">Services</h2>
-                <div class="services-grid" id="services-grid">
+                <div class="services-header">
+                    <h2 class="section-title">Services</h2>
+                    <div class="services-filters">
+                        <button id="expand-all-btn" class="btn-filter" onclick="expandAllCategories()" title="Expand all categories">▼ Expand All</button>
+                        <button id="collapse-all-btn" class="btn-filter" onclick="collapseAllCategories()" title="Collapse all categories">▲ Collapse All</button>
+                    </div>
+                </div>
+                <div id="services-container" class="services-container">
                     <div class="service-card loading">
                         <div class="loading-spinner"></div>
                         <p>Loading services...</p>
@@ -102,6 +197,10 @@
         </footer>
     </div>
 
+    <script src="auth.js"></script>
+    <script src="themes.js"></script>
+    <script src="alerts.js"></script>
+    <script src="uptime.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
