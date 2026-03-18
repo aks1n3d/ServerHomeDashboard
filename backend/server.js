@@ -281,6 +281,8 @@ app.put('/api/auth/preferences', auth.verifyJWTMiddleware, (req, res) => {
   } catch (error) {
     res.status(500).json({error: error.message});
   }
+});
+
 // Service endpoints
 
 // Get all services with their health status
@@ -483,7 +485,7 @@ app.put('/api/auth/preferences', auth.verifyJWTMiddleware, (req, res) => {
   });
 
 // Error handling
-  app.use((err, req, res, next) => {
+  app.use((err, req, res) => {
     console.error(err.stack);
     res.status(500).json({error: 'Internal server error'});
   });
